@@ -30,6 +30,7 @@ Thông tin hệ thống:
 ---
 
 # 🗂️ Cấu trúc thư mục
+```
 GIBOR-COFFEE-SHOP/
 ├── index.html              # Trang chủ                    [Trần Gia Bảo]
 ├── menu.html               # Trang menu sản phẩm          [Nguyễn Hoàng Bảo]
@@ -70,7 +71,8 @@ GIBOR-COFFEE-SHOP/
     ├── banner/             # Ảnh banner trang chủ
     ├── menu/               # Ảnh sản phẩm menu
     └── about/              # Ảnh trang giới thiệu
-    
+```
+
 ---
 
 # 🌟 Tính năng chính
