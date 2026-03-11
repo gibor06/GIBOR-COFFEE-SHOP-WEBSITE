@@ -41,6 +41,16 @@
     const menuContainer = document.querySelector('.menu-container') || document.querySelector('.menu-section')?.parentElement;
     if (menuContainer) menuContainer.style.removeProperty('padding-top');
 
+    const header = document.querySelector('.header');
+    if (header) {
+      header.style.removeProperty('position');
+      header.style.removeProperty('top');
+      header.style.removeProperty('left');
+      header.style.removeProperty('right');
+      header.style.removeProperty('width');
+      header.style.removeProperty('z-index');
+    }
+
     setBodyScrollLock(false);
     window.setMobileDrawerState = null;
   }
@@ -264,6 +274,10 @@
 
     const tabs = document.createElement('div');
     tabs.className = 'm-category-tabs';
+    tabs.style.position = 'fixed';
+    tabs.style.left = '0';
+    tabs.style.right = '0';
+    tabs.style.zIndex = '998';
 
     const icons = {
       'Cà phê': '', 'Matcha': '', 'Trà': '', 'Bánh ngọt': '', 'Topping': ''
@@ -304,7 +318,18 @@
           return;
         }
         syncHeaderHeightVar();
-        menuContainer.style.paddingTop = `${tabs.offsetHeight + 18}px`;
+        const header = document.querySelector('.header');
+        const headerH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--m-header-h')) || 56;
+        if (header) {
+          header.style.position = 'fixed';
+          header.style.top = '0';
+          header.style.left = '0';
+          header.style.right = '0';
+          header.style.width = '100%';
+          header.style.zIndex = '999';
+        }
+        tabs.style.top = `${headerH}px`;
+        menuContainer.style.paddingTop = `${headerH + tabs.offsetHeight + 12}px`;
       };
 
       syncTabsOffset();

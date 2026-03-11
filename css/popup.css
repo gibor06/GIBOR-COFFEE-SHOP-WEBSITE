@@ -523,7 +523,7 @@ body.dark .add-cart {
 /* Khung chứa banner */
 .popup-content-ads {
   background: white;
-  width: 100%;
+  width: 50%;
   max-width: 75%;
   border-radius: 20px;
   overflow: hidden;
@@ -573,54 +573,12 @@ body.dark .add-cart {
   object-fit: cover;
 }
 
-/* Nội dung văn bản bên dưới ảnh */
-.promo-details-ads {
-  padding: 25px;
-  text-align: center;
-}
-
-.promo-details-ads h2 {
-  margin: 0 0 10px;
-  color: var(--pink-primary);
-  font-size: 24px;
-}
-
-.promo-details-ads p {
-  color: #666;
-  margin-bottom: 20px;
-}
-
-.code-box-ads {
-  background: var(--pink-light);
-  border: 2px dashed var(--pink-primary);
-  padding: 12px;
-  border-radius: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.code-text-ads {
-  font-weight: 800;
-  font-size: 20px;
-  color: var(--pink-primary);
-  letter-spacing: 2px;
-}
-
-.copy-link-ads {
-  color: var(--pink-primary);
-  text-decoration: underline;
-  font-size: 14px;
-  cursor: pointer;
-  font-weight: 600;
-}
-
 .btn-claim-ads {
+  text-align: center;
   display: block;
   width: 100%;
   padding: 15px;
-  background: darkorchid;
+  background: green;
   color: white;
   text-decoration: none;
   border-radius: 12px;

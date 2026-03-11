@@ -572,13 +572,14 @@
   /* Category tabs — sticky scrollable */
   .m-category-tabs {
     position: fixed;
-    top: calc(var(--m-header-h) + 4px);
+    top: var(--m-header-h);
     left: 0;
     right: 0;
     width: 100%;
     z-index: 998;
     background: var(--m-bg);
     border-bottom: 1px solid #ede3d9;
+    margin-top: 0;
     display: flex;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -1457,13 +1458,18 @@
     width: 100% !important;
     padding: 0 !important;
   }
+  .contact-info {
+    text-align: left !important;
+  }
   .contact-title {
     font-size: 1.3rem;
     margin-bottom: 8px;
+    text-align: left;
   }
   .contact-subtitle {
     font-size: 0.85rem;
     margin-bottom: 16px;
+    text-align: left;
   }
   .info-item {
     display: flex;
@@ -1472,16 +1478,32 @@
     padding: 12px;
     background: var(--m-surface);
     border-radius: var(--m-radius);
+    border: 1px solid #eadcca;
+    justify-content: flex-start;
+    text-align: left;
   }
   .info-item .icon {
     font-size: 1.3rem;
   }
   .info-item .text strong {
     font-size: 0.82rem;
+    color: #4b2c20;
   }
   .info-item .text p {
     font-size: 0.85rem;
     margin-top: 2px;
+    color: #5a4335;
+    opacity: 1;
+    text-align: left;
+  }
+
+  body.dark .info-item .text strong {
+    color: #4b2c20;
+  }
+
+  body.dark .info-item .text p {
+    color: #5a4335;
+    opacity: 1;
   }
   .contact-form-box {
     background: var(--m-bg);

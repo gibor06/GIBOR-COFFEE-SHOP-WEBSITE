@@ -599,9 +599,35 @@ body.dark .checkout-item-price {
     font-weight: 700;
     font-size: 12px;
     text-transform: uppercase;
-    color: var(--accent);
+    color: #b68357;
     display: block;
     margin-bottom: 4px;
+  }
+
+  .cart-table td[data-label="Xóa"] {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: auto;
+    padding: 0;
+    margin: 0;
+    z-index: 2;
+  }
+
+  .cart-table td[data-label="Xóa"]::before {
+    display: none;
+  }
+
+  .cart-table td[data-label="Xóa"] .btn-remove {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    font-size: 14px;
+    line-height: 1;
   }
 
   .cart-product {
@@ -612,6 +638,31 @@ body.dark .checkout-item-price {
   .cart-product img {
     width: 50px;
     height: 50px;
+  }
+
+  .cart-product-name {
+    color: #4b2c20;
+    font-weight: 700;
+  }
+
+  .cart-product-options {
+    color: #7b6253;
+    opacity: 1;
+  }
+
+  .cart-product-note {
+    color: #7b6253;
+    opacity: 1;
+  }
+
+  body.dark .cart-product-name {
+    color: #4b2c20;
+  }
+
+  body.dark .cart-product-options,
+  body.dark .cart-product-note {
+    color: #7b6253;
+    opacity: 1;
   }
 
   .cart-summary {

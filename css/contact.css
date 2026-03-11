@@ -24,6 +24,18 @@ body.dark {
   }
 }
 
+/* Mobile dark-mode readability for contact info cards */
+@media (max-width: 768px) {
+  body.dark .info-item .text strong {
+    color: #4b2c20;
+  }
+
+  body.dark .info-item .text p {
+    color: #5a4335;
+    opacity: 1;
+  }
+}
+
 .contact-page {
   padding: 120px 5%;
   background: linear-gradient(180deg, var(--primary) 0%, var() 100%);
