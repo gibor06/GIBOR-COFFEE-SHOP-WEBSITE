@@ -232,6 +232,22 @@
     <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
 
+    <!-- Khởi tạo Firebase -->
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyCnHG40t4WN230Alu4ia0cvzKhfndeBfpE",
+        authDomain: "coffee-a718c.firebaseapp.com",
+        projectId: "coffee-a718c",
+        storageBucket: "coffee-a718c.firebasestorage.app",
+        messagingSenderId: "37237991343",
+        appId: "1:37237991343:web:035a77871af9b41476315a",
+        measurementId: "G-YSS8HXMN6R",
+      };
+      if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+      }
+    </script>
+
     <!-- Phần JS CHUNG -->
     <script src="js/data.js"></script>
     <script src="js/main.js"></script>

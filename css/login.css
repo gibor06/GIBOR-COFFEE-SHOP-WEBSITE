@@ -266,9 +266,13 @@
   transform: translateY(-2px);
 }
 
-/* Viền riêng cho Google & Facebook */
+/* Viền riêng cho Google, GitHub & Facebook */
 .btn-google:hover {
   border-color: #ea4335;
+}
+
+.btn-github:hover {
+  border-color: #333;
 }
 
 .btn-facebook:hover {

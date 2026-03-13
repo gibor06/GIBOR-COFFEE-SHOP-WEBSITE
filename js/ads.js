@@ -17,7 +17,6 @@ function closePopupHandler() {
   setTimeout(() => {
     popup.style.display = "none";
   }, 400);
-  copyPromoCode();
 }
 
 closeBtn.onclick = closePopupHandler;
@@ -28,23 +27,3 @@ window.onclick = function (event) {
     closePopupHandler();
   }
 };
-
-// Hàm sao chép mã
-function copyPromoCode() {
-  const code = document.getElementById("promoCode").innerText;
-  const el = document.createElement("textarea");
-  el.value = code;
-  document.body.appendChild(el);
-  el.select();
-  document.execCommand("copy");
-  document.body.removeChild(el);
-
-  const copyBtn = document.querySelector(".copy-link");
-  copyBtn.innerText = "ĐÃ CHÉP!";
-  copyBtn.style.color = "#059669";
-
-  setTimeout(() => {
-    copyBtn.innerText = "SAO CHÉP";
-    copyBtn.style.color = "var(--pink-primary)";
-  }, 2000);
-}

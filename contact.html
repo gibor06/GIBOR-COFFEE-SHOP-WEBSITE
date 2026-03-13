@@ -148,19 +148,20 @@
                 ></textarea>
               </div>
 
-              <button type="submit" id="btn-gui" class="btn-send">Gửi Lời Nhắn</button>
+              <button type="submit" id="btn-gui" class="btn-send">
+                Gửi Lời Nhắn
+              </button>
 
               <div id="myModal" class="modal">
                 <div class="modal-content">
                   <h2>Thành công!</h2>
                   <p>Cảm ơn bạn! GIBOR đã nhận được lời nhắn từ bạn.</p>
-                  
+
                   <div class="modal-footer">
                     <button type="button" class="closeBtn">X Đóng</button>
                   </div>
                 </div>
               </div>
-            </div>
             </form>
           </div>
         </div>
@@ -237,6 +238,22 @@
     <!-- Firebase SDK cho xác thực Google -->
     <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+
+    <!-- Khởi tạo Firebase -->
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyCnHG40t4WN230Alu4ia0cvzKhfndeBfpE",
+        authDomain: "coffee-a718c.firebaseapp.com",
+        projectId: "coffee-a718c",
+        storageBucket: "coffee-a718c.firebasestorage.app",
+        messagingSenderId: "37237991343",
+        appId: "1:37237991343:web:035a77871af9b41476315a",
+        measurementId: "G-YSS8HXMN6R",
+      };
+      if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+      }
+    </script>
 
     <!-- Phần JS CHUNG -->
     <script src="js/data.js"></script>

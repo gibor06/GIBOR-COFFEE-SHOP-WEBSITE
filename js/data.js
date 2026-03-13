@@ -221,6 +221,31 @@ const UserManager = {
   },
 
   /**
+   * Đặt lại mật khẩu (dành cho Quên mật khẩu)
+   * @param {string} email - Email của tài khoản
+   * @param {string} newPassword - Mật khẩu mới
+   * @returns {Object} { success, message }
+   */
+  resetPassword(email, newPassword) {
+    const users = this.getUsers();
+    const idx = users.findIndex((u) => u.email === email);
+    if (idx === -1)
+      return { success: false, message: "Email không tồn tại trong hệ thống." };
+
+    if (newPassword.length < 6) {
+      return {
+        success: false,
+        message: "Mật khẩu mới phải có ít nhất 6 ký tự.",
+      };
+    }
+
+    users[idx].password = newPassword;
+    this.saveUsers(users);
+
+    return { success: true, message: "Lấy lại mật khẩu thành công!" };
+  },
+
+  /**
    * Đăng nhập/Đăng ký bằng Google (Firebase Auth)
    * Nếu email đã tồn tại trong localStorage → đăng nhập luôn
    * Nếu chưa → tạo tài khoản mới từ thông tin Google
@@ -263,6 +288,60 @@ const UserManager = {
       googleUid: googleUser.uid,
       photoURL: googleUser.photoURL || "",
       provider: "google",
+      createdAt: new Date().toISOString(),
+    };
+
+    users.push(newUser);
+    this.saveUsers(users);
+    this.setCurrentUser(newUser);
+
+    return {
+      success: true,
+      message: "Đăng ký thành công!",
+      user: newUser,
+      isNew: true,
+    };
+  },
+
+  /**
+   * Đăng nhập/đăng ký bằng GitHub (Firebase Auth)
+   * Cách hoạt động tương tự loginWithGoogle nhưng ghi rõ provider github
+   */
+  loginWithGithub(githubUser) {
+    const users = this.getUsers();
+    let user = users.find((u) => u.email === githubUser.email);
+
+    if (user) {
+      user.githubUid = githubUser.uid;
+      user.photoURL = githubUser.photoURL || user.photoURL;
+      this.saveUsers(users);
+      this.setCurrentUser(user);
+      return {
+        success: true,
+        message: "Đăng nhập thành công!",
+        user,
+        isNew: false,
+      };
+    }
+
+    // Chưa có tài khoản tương ứng
+    const nameParts = (githubUser.displayName || "GitHub User")
+      .trim()
+      .split(" ");
+    const firstName = nameParts.pop();
+    const lastName = nameParts.join(" ");
+
+    const newUser = {
+      id: Date.now(),
+      lastName: lastName,
+      firstName: firstName,
+      displayName: githubUser.displayName || "GitHub User",
+      email: githubUser.email,
+      phone: "",
+      password: "",
+      githubUid: githubUser.uid,
+      photoURL: githubUser.photoURL || "",
+      provider: "github",
       createdAt: new Date().toISOString(),
     };
 

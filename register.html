@@ -203,7 +203,17 @@
               <img src="images/logo/icons8-google-48.png" alt="Google" />
               <span>Google</span>
             </button>
-
+            <button
+              type="button"
+              class="form-button-social btn-github"
+              id="btnGithubRegister"
+            >
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+                alt="GitHub"
+              />
+              <span>GitHub</span>
+            </button>
           </div>
 
           <!-- LINK CHUYỂN SANG TRANG ĐĂNG NHẬP -->
@@ -286,6 +296,22 @@
     <!-- Firebase SDK cho xác thực Google -->
     <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+
+    <!-- Khởi tạo Firebase (PHẢI đặt sau khi load SDK, trước khi dùng firebase.auth()) -->
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyCnHG40t4WN230Alu4ia0cvzKhfndeBfpE",
+        authDomain: "coffee-a718c.firebaseapp.com",
+        projectId: "coffee-a718c",
+        storageBucket: "coffee-a718c.firebasestorage.app",
+        messagingSenderId: "37237991343",
+        appId: "1:37237991343:web:035a77871af9b41476315a",
+        measurementId: "G-YSS8HXMN6R",
+      };
+      if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+      }
+    </script>
 
     <!-- Phần JS CHUNG -->
     <script src="js/data.js"></script>

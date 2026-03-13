@@ -101,9 +101,10 @@ function renderCart() {
     const iceText = item.ice ? `Đá: ${item.ice}` : "";
     const noteText = item.note ? `📝 ${item.note}` : "";
     const isFood = item.size === "Mặc định";
-    const toppingText = (item.toppings && item.toppings.length > 0)
-      ? `Topping: ${item.toppings.map(t => t.name).join(", ")}`
-      : "";
+    const toppingText =
+      item.toppings && item.toppings.length > 0
+        ? `Topping: ${item.toppings.map((t) => t.name).join(", ")}`
+        : "";
 
     html += `
       <tr>

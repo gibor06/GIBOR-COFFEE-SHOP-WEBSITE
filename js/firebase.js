@@ -33,6 +33,11 @@ const app = initializeApp(firebaseConfig);
 // Export Firebase Auth để dùng ở các module khác
 export const auth = getAuth(app);
 
+/*
+  Lưu ý: phần logic đăng nhập (Google/GitHub) nằm trong loginregister.js
+  để giữ firebase.js chỉ chứa cấu hình cơ bản.
+*/
+
 /* 
   ========================================================================================
                           KẾT THÚC CODE BỞI NGUYỄN THẾ ANH
