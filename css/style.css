@@ -96,6 +96,17 @@ body.dark {
   --card: #1e1e1e;
 }
 
+/* Giữ nguyên style cho nút social ở footer */
+.footer .social-links a {
+  background: var(--primary) !important;
+  color: var(--white) !important;
+  border-color: var(--primary) !important;
+}
+
+.footer .social-links a:hover {
+  background: var(--accent) !important;
+}
+
 body {
   background: var(--bg);
   color: var(--text);

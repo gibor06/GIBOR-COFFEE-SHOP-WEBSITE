@@ -27,18 +27,13 @@ body.dark {
 /* Mobile dark-mode readability for contact info cards */
 @media (max-width: 768px) {
   body.dark .info-item .text strong {
-    color: #4b2c20;
+    color: var(--accent-light);
   }
 
   body.dark .info-item .text p {
-    color: #5a4335;
-    opacity: 1;
+    color: #ddd;
+    opacity: 0.9;
   }
-}
-
-.contact-page {
-  padding: 120px 5%;
-  background: linear-gradient(180deg, var(--primary) 0%, var() 100%);
 }
 
 .contact-container {
@@ -47,6 +42,7 @@ body.dark {
   display: flex;
   gap: 60px;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .contact-info {
@@ -55,47 +51,140 @@ body.dark {
   display: flex;
   flex-direction: column;
   gap: 30px;
-  padding-top: 20px;
+  padding: 20px;
 }
 
 .contact-title {
   font-family: var(--font-heading);
-  font-size: 3rem;
+  font-size: 3.5rem;
   color: var(--primary);
+  margin-bottom: 10px;
+  line-height: 1.1;
+}
+
+.contact-subtitle {
+  font-size: 1.1rem;
+  color: var(--text);
+  opacity: 0.8;
+  margin-bottom: 20px;
+}
+
+.info-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .info-item {
   display: flex;
-  gap: 18px;
-  align-items: flex-start;
-  padding: 10px 0;
-  transition: transform 0.3s ease;
+  gap: 20px;
+  align-items: center;
+  padding: 15px 20px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+body.dark .info-item {
+  background: #2a2a2a;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .info-item:hover {
-  transform: translateX(6px);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(212, 163, 115, 0.2);
 }
 
 .info-item .icon {
-  box-shadow: 0 8px 20px rgba(212, 163, 115, 0.4);
-  transition: transform 0.3s ease;
+  width: 50px;
+  height: 50px;
+  background: var(--accent);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  flex-shrink: 0;
 }
 
-.info-item:hover .icon {
-  transform: scale(1.05);
+.info-item .text strong {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--primary);
+  margin-bottom: 3px;
+}
+
+body.dark .info-item .text strong {
+  color: var(--accent);
+}
+
+.info-item .text p {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.social-box h4 {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  color: var(--primary);
+}
+
+body.dark .social-box h4 {
+  color: #fff;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: #fff;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+body.dark .social-btn {
+  background: #2a2a2a;
+  color: #fff;
+}
+
+.social-btn:hover {
+  background: var(--accent);
+  color: #fff;
+  transform: translateY(-3px);
+  border-color: var(--accent);
+}
+
+.social-btn i {
+  font-size: 1.1rem;
 }
 
 /* ==================================== PHẦN FORM CONTACT ================================== */
 .contact-form-box {
-  flex: 1;
+  flex: 1.2;
   min-width: 350px;
-  background: var(--card-bg);
+  background: #fff;
   padding: 50px;
-  border-radius: 20px;
-  box-shadow: var(--shadow);
-  transition:
-    background 0.4s ease,
-    box-shadow 0.4s ease;
+  border-radius: 30px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+}
+
+body.dark .contact-form-box {
+  background: #2a2a2a;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
 }
 
 .input-group {
@@ -109,131 +198,152 @@ body.dark {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 600;
-  color: var(--text);
-  opacity: 0.7;
+  color: var(--primary);
+  opacity: 0.8;
+}
+
+body.dark .input-group label {
+  color: var(--accent);
 }
 
 .input-group input,
 .input-group textarea {
   width: 100%;
-  padding: 14px 16px;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  background: var(--input-bg);
+  padding: 15px 20px;
+  border-radius: 15px;
+  border: 2px solid #eee;
+  background: #fdfdfd;
   color: var(--text);
   font-size: 1rem;
   transition: all 0.3s ease;
 }
 
+body.dark .input-group input,
+body.dark .input-group textarea {
+  background: #333;
+  border-color: #444;
+  color: #fff;
+}
+
 .input-group input:focus,
 .input-group textarea:focus {
-  background: var(--card-bg);
+  background: #fff;
   border-color: var(--accent);
-  box-shadow: 0 0 0 4px rgba(212, 163, 115, 0.15);
+  box-shadow: 0 0 0 4px rgba(212, 163, 115, 0.1);
   outline: none;
+}
+
+body.dark .input-group input:focus,
+body.dark .input-group textarea:focus {
+  background: #3a3a3a;
 }
 
 /* ==================================== PHẦN GỬI CONTACT ================================== */
 
 .btn-send {
   width: 100%;
-  padding: 15px;
-  border-radius: 10px;
+  padding: 18px;
+  border-radius: 15px;
   border: none;
   background: var(--primary);
   color: #fff;
+  font-size: 1.1rem;
   font-weight: 700;
   letter-spacing: 1px;
   cursor: pointer;
   transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(75, 44, 32, 0.2);
 }
 
 .btn-send:hover {
   background: var(--accent);
-  color: var(--primary);
-  transform: translateY(-2px);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(212, 163, 115, 0.3);
 }
 
 /* Nền tối bao phủ toàn màn hình */
 .modal {
-  display: none; /* Ẩn mặc định */
+  display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 1000;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Màu nền đen mờ */
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
 }
 
 /* Nội dung cửa sổ chính */
 .modal-content {
-  background-color: white;
+  background-color: #fff;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
-  padding: 30px;
-  border-radius: 8px;
+  padding: 40px;
+  border-radius: 25px;
   width: 90%;
+  max-width: 450px;
   text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border: none;
+}
+
+body.dark .modal-content {
+  background-color: #2a2a2a;
+  color: #fff;
+}
+
+.modal-content h2 {
+  font-family: var(--font-heading);
+  color: var(--primary);
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+body.dark .modal-content h2 {
+  color: var(--accent);
+}
+
+.modal-content p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+body.dark .modal-content p {
+  color: #ccc;
 }
 
 /* Container chứa nút bấm để căn lề phải */
 .modal-footer {
-  margin-top: 20px;
-  text-align: right;
-  border-top: 1px solid #eee;
-  padding-top: 15px;
-}
-
-.modal-content h2 {
-  margin-top: 0;
-  margin-bottom: 20px;
-}
-
-.modal-content p {
-  margin-bottom: 30px;
-  color: #555;
+  margin-top: 10px;
+  text-align: center;
 }
 
 /* Kiểu dáng nút đóng */
 .closeBtn {
-  background-color: #f44336; /* Màu đỏ hoặc màu chủ đạo của bạn */
+  background-color: var(--primary);
   color: white;
-  padding: 10px 20px;
+  padding: 12px 35px;
   border: none;
-  border-radius: 5px;
+  border-radius: 12px;
   cursor: pointer;
-  font-size: 16px;
-  transition: background 0.3s;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s;
 }
 
 .closeBtn:hover {
-  background-color: #d32f2f; /* Đậm hơn khi di chuột vào */
+  background-color: var(--accent);
+  transform: scale(1.05);
 }
 
 /* ==================================== PHẦN THÔNG TIN CONTACT ================================== */
-
-.social-links a {
-  display: inline-block;
-  padding: 10px 30px;
-  border-radius: 30px;
-  border: 1px solid var(--primary);
-  color: var(--primary);
-  font-size: 14px;
-  font-weight: 600;
-  margin-top: 20px;
-  transition: all 0.3s ease;
-}
-
-.social-links a:hover {
-  background: var(--accent);
-  color: #fff;
-  transform: translateY(-3px);
-}
+/* Xóa các styles cũ đã được thay thế */
 
 /* ===== RESPONSIVE CONTACT ===== */
 @media (max-width: 992px) {
@@ -292,12 +402,13 @@ body.dark {
     justify-content: center;
     display: flex;
     flex-wrap: wrap;
+    gap: 10px;
   }
 
-  .social-links a {
-    margin: 0 5px 8px;
-    padding: 6px 16px;
-    font-size: 13px;
+  .social-btn {
+    margin: 0;
+    padding: 10px 20px;
+    font-size: 14px;
   }
 }
 
@@ -307,28 +418,16 @@ body.dark {
   }
 
   .contact-title {
-    font-size: 1.6rem;
+    font-size: 2.2rem;
   }
 
   .contact-form-box {
-    padding: 20px 15px;
-    border-radius: 15px;
-  }
-
-  .input-group input,
-  .input-group textarea {
-    padding: 12px 14px;
-    font-size: 0.9rem;
-  }
-
-  .btn-send {
-    padding: 13px;
-    font-size: 14px;
+    padding: 30px 20px;
+    border-radius: 20px;
   }
 
   .info-item {
-    gap: 12px;
-    padding: 8px 0;
+    padding: 12px 15px;
   }
 }
 
