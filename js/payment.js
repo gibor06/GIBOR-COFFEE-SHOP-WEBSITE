@@ -640,6 +640,13 @@ function showConfirmPayment() {
 
     overlay.classList.add("show");
 
+    // Trên mobile, tạo lại QR sau khi popup đã hiển thị để tránh bị hoãn tải ảnh.
+    if (selectedPayment === "banking") {
+      requestAnimationFrame(() => {
+        setTimeout(updateQRCode, 60);
+      });
+    }
+
     const handleOk = () => {
       overlay.classList.remove("show");
       btnOk.removeEventListener("click", handleOk);
@@ -1502,7 +1509,7 @@ function updateQRCode() {
   const qrUrls = Array.from(new Set(builtUrls));
 
   // Ảnh QR nằm trong popup nên cần tải ngay, tránh bị mobile lazy-load trì hoãn.
-  qrImg.removeAttribute("loading");
+  qrImg.setAttribute("loading", "eager");
   qrImg.setAttribute("fetchpriority", "high");
   qrImg.setAttribute("decoding", "async");
 
