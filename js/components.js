@@ -2,7 +2,7 @@
 ========================================================================================
 
                                     CODE BỞI TRẦN GIA BẢO
-                      Tái sử dụng Header và Footer cho GIBOR COFFEE
+                                    
 ========================================================================================
 */
 
@@ -20,6 +20,7 @@ const HeaderComponent = `
           <ul class="nav-links">
             <li><a href="index.html">Trang chủ</a></li>
             <li><a href="menu.html">Menu</a></li>
+            <li><a href="branches.html">Chi nhánh</a></li>
             <li><a href="about.html">Giới thiệu</a></li>
             <li><a href="contact.html">Liên hệ</a></li>
           </ul>
@@ -65,6 +66,7 @@ const FooterComponent = `
           <ul>
             <li><a href="index.html">Trang chủ</a></li>
             <li><a href="menu.html">Menu</a></li>
+            <li><a href="branches.html">Chi nhánh</a></li>
             <li><a href="about.html">Giới thiệu</a></li>
             <li><a href="contact.html">Liên hệ</a></li>
           </ul>

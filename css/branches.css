@@ -1,0 +1,373 @@
+/* 
+  ========================================================================================
+                              CODE BỞI NGUYỄN THẾ ANH
+  ========================================================================================
+*/
+
+.branches-page {
+  padding-bottom: 60px;
+}
+
+.branches-hero {
+  min-height: 340px;
+  background:
+    linear-gradient(rgba(30, 18, 12, 0.6), rgba(30, 18, 12, 0.6)),
+    url("../images/banner/hero-bg.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.branches-hero-content {
+  max-width: 820px;
+  text-align: center;
+  color: #fff;
+}
+
+.branches-hero h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 14px;
+}
+
+.branches-hero p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.branches-container {
+  max-width: 1200px;
+  margin: -40px auto 0;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.branch-filter-card {
+  background: var(--white);
+  border-radius: 18px;
+  border: 1px solid rgba(212, 163, 115, 0.25);
+  box-shadow: 0 12px 35px rgba(45, 36, 36, 0.08);
+  padding: 24px;
+  margin-bottom: 22px;
+}
+
+.branch-filter-card h2 {
+  font-family: var(--font-heading);
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.branch-filter-card p {
+  color: #6a5a52;
+  margin-bottom: 18px;
+}
+
+.branch-filter-grid {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 14px;
+}
+
+.branch-filter-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.branch-filter-item label {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.branch-filter-item select,
+.branch-filter-item input {
+  height: 46px;
+  border: 1px solid #d8c7b8;
+  border-radius: 12px;
+  padding: 0 14px;
+  font-size: 0.95rem;
+  color: #3b2c25;
+  background: #fffdfb;
+}
+
+.branch-filter-item input:focus,
+.branch-filter-item select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(212, 163, 115, 0.2);
+}
+
+.branch-result {
+  margin-top: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  color: var(--primary);
+  background: rgba(212, 163, 115, 0.18);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.branch-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  align-items: start;
+}
+
+.branch-list-wrap {
+  min-width: 0;
+}
+
+.branch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.branch-card {
+  border: 1px solid #e7d7ca;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  cursor: pointer;
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+}
+
+.branch-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(75, 44, 32, 0.12);
+}
+
+.branch-card.active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(212, 163, 115, 0.25);
+}
+
+.branch-card__img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  display: block;
+}
+
+.branch-card__body {
+  padding: 14px 14px 16px;
+}
+
+.branch-card__name {
+  color: var(--primary);
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.branch-card__address {
+  color: #604b42;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.branch-card__desc {
+  color: #6e5f58;
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+.branch-empty {
+  margin-top: 16px;
+  border: 1px dashed #d4a373;
+  border-radius: 14px;
+  padding: 24px;
+  text-align: center;
+  color: #7b5d4d;
+  background: #fffaf5;
+}
+
+.branch-empty i {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.branch-detail-card {
+  border: 1px solid #e7d7ca;
+  border-radius: 18px;
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 12px 35px rgba(45, 36, 36, 0.08);
+  position: sticky;
+  top: 110px;
+}
+
+.branch-detail-image-wrap {
+  width: 100%;
+  height: 220px;
+}
+
+.branch-detail-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.branch-detail-content {
+  padding: 20px;
+}
+
+.branch-detail-heading {
+  margin-bottom: 12px;
+}
+
+.branch-detail-heading h3 {
+  font-family: var(--font-heading);
+  color: var(--primary);
+  margin-bottom: 10px;
+  font-size: 1.55rem;
+}
+
+.branch-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.branch-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--primary);
+}
+
+.branch-badge-alt {
+  background: var(--accent-dark);
+}
+
+.branch-short {
+  color: #5f4f48;
+  font-weight: 600;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.branch-full {
+  color: #5b504b;
+  line-height: 1.72;
+  margin-bottom: 14px;
+}
+
+.branch-meta {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.branch-meta li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: #4e3a31;
+}
+
+.branch-meta i {
+  margin-top: 3px;
+  color: var(--accent-dark);
+}
+
+.branch-meta a {
+  color: #4e3a31;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.branch-map-link {
+  margin-top: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  background: var(--primary);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.branch-map-link:hover {
+  background: var(--accent-dark);
+}
+
+.branch-map-frame {
+  margin-top: 14px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e4d3c4;
+}
+
+.branch-map-frame iframe {
+  width: 100%;
+  height: 240px;
+  border: 0;
+}
+
+@media (max-width: 1024px) {
+  .branch-content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .branch-detail-card {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .branches-hero {
+    min-height: 290px;
+    padding: 24px 16px;
+  }
+
+  .branches-container {
+    margin-top: -24px;
+    padding: 0 14px;
+  }
+
+  .branch-filter-card {
+    border-radius: 14px;
+    padding: 16px;
+  }
+
+  .branch-filter-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .branch-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .branch-detail-image-wrap {
+    height: 180px;
+  }
+
+  .branch-detail-content {
+    padding: 16px;
+  }
+}
+
+/* 
+  ========================================================================================
+                              KẾT THÚC CODE BỞI NGUYỄN THẾ ANH
+  ========================================================================================
+*/

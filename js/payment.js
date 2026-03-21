@@ -344,7 +344,28 @@ function selectPayment(method) {
 }
 
 // ===== DỮ LIỆU CHI NHÁNH =====
-const BRANCHES = {
+const BRANCHES = (() => {
+  if (
+    typeof window !== "undefined" &&
+    window.GIBOR_BRANCH_UTILS &&
+    typeof window.GIBOR_BRANCH_UTILS.getByCity === "function"
+  ) {
+    const mapCityBranches = (cityCode) =>
+      window.GIBOR_BRANCH_UTILS.getByCity(cityCode).map((branch) => ({
+        id: branch.id,
+        name: branch.name,
+        address: branch.address,
+      }));
+
+    return {
+      hcm: mapCityBranches("hcm"),
+      hn: mapCityBranches("hn"),
+      dn: mapCityBranches("dn"),
+    };
+  }
+
+  // Fallback cũ để tránh ảnh hưởng checkout nếu file dữ liệu chưa được include.
+  return {
   hcm: [
     {
       id: "hcm1",
@@ -426,7 +447,8 @@ const BRANCHES = {
       address: "55 Cách Mạng Tháng Tám, Khuê Trung, Cẩm Lệ, Đà Nẵng",
     },
   ],
-};
+  };
+})();
 
 let selectedBranch = null;
 

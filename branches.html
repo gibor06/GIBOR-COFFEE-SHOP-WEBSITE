@@ -1,0 +1,184 @@
+<!--
+========================================================================================
+
+                                TRANG DANH SÁCH CHI NHÁNH
+
+========================================================================================
+-->
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chi nhánh GIBOR COFFEE</title>
+
+    <!-- THEME CHÍNH DÙNG CHUNG -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- CSS RIÊNG CHO TRANG CHI NHÁNH -->
+    <link rel="stylesheet" href="css/branches.css" />
+    <!-- MOBILE RESPONSIVE -->
+    <link rel="stylesheet" href="css/mobile.css" />
+
+    <!-- FONT DÙNG CHUNG -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&family=Mrs+Saint+Delafield&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- HEADER DÙNG CHUNG -->
+    <div id="header-placeholder"></div>
+
+    <main class="branches-page">
+      <!-- Loading Screen -->
+      <div class="logo" id="preloader">
+        <div class="loader-icon">
+          <img src="images/logo/logo.jpg" alt="GIBOR Coffee" />
+        </div>
+        <p class="preloader-text">GIBOR COFFEE</p>
+      </div>
+
+      <section class="branches-hero">
+        <div class="branches-hero-content">
+          <h1>Hệ Thống Chi nhánh Của GIBOR</h1>
+          <p>
+            Tìm chi nhánh gần bạn để thưởng thức cà phê rang mộc trong không
+            gian ấm cúng, phục vụ nhanh và thân thiện.
+          </p>
+        </div>
+      </section>
+
+      <section class="branches-container">
+        <div class="branch-filter-card">
+          <h2>Danh sách chi nhánh</h2>
+          <p>Chọn khu vực hoặc tìm theo tên chi nhánh, địa chỉ.</p>
+
+          <div class="branch-filter-grid">
+            <div class="branch-filter-item">
+              <label for="branchCityFilter">Khu vực</label>
+              <select id="branchCityFilter">
+                <option value="all">Tất cả khu vực</option>
+                <option value="hcm">TP. Hồ Chí Minh</option>
+                <option value="hn">Hà Nội</option>
+                <option value="dn">Đà Nẵng</option>
+              </select>
+            </div>
+            <div class="branch-filter-item">
+              <label for="branchSearch">Tìm kiếm</label>
+              <input
+                id="branchSearch"
+                type="text"
+                placeholder="Ví dụ: Nguyễn Huệ, Cầu Giấy, Võ Nguyên Giáp..."
+              />
+            </div>
+          </div>
+
+          <div class="branch-result" id="branchResultCount">0 chi nhánh</div>
+        </div>
+
+        <div class="branch-content-grid">
+          <div class="branch-list-wrap">
+            <div class="branch-grid" id="branchGrid"></div>
+            <div class="branch-empty hidden" id="branchEmpty">
+              <i class="fa-solid fa-location-dot"></i>
+              <p>Không tìm thấy chi nhánh phù hợp. Hãy thử từ khóa khác.</p>
+            </div>
+          </div>
+
+          <article class="branch-detail-card" id="branchDetailPanel">
+            <div class="branch-detail-image-wrap">
+              <img id="detailImage" src="" alt="Chi nhánh GIBOR" />
+            </div>
+            <div class="branch-detail-content">
+              <div class="branch-detail-heading">
+                <h3 id="detailName"></h3>
+                <div class="branch-badges">
+                  <span class="branch-badge" id="detailCity"></span>
+                  <span class="branch-badge branch-badge-alt" id="detailDistrict"></span>
+                </div>
+              </div>
+
+              <p class="branch-short" id="detailShort"></p>
+              <p class="branch-full" id="detailFull"></p>
+
+              <ul class="branch-meta">
+                <li>
+                  <i class="fa-solid fa-map-pin"></i>
+                  <span id="detailAddress"></span>
+                </li>
+                <li id="detailPhoneRow">
+                  <i class="fa-solid fa-phone"></i>
+                  <a id="detailPhone" href="#"></a>
+                </li>
+                <li id="detailEmailRow">
+                  <i class="fa-solid fa-envelope"></i>
+                  <a id="detailEmail" href="#"></a>
+                </li>
+              </ul>
+
+              <a
+                class="branch-map-link"
+                id="detailMapLink"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fa-solid fa-map-location-dot"></i>
+                Mở trên Google Maps
+              </a>
+
+              <div class="branch-map-frame">
+                <iframe
+                  id="detailMap"
+                  src=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  allowfullscreen
+                  title="Bản đồ chi nhánh"
+                ></iframe>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER DÙNG CHUNG -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Firebase SDK cho xác thực Google -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+
+    <!-- Khởi tạo Firebase -->
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyCnHG40t4WN230Alu4ia0cvzKhfndeBfpE",
+        authDomain: "coffee-a718c.firebaseapp.com",
+        projectId: "coffee-a718c",
+        storageBucket: "coffee-a718c.firebasestorage.app",
+        messagingSenderId: "37237991343",
+        appId: "1:37237991343:web:035a77871af9b41476315a",
+        measurementId: "G-YSS8HXMN6R",
+      };
+      if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+      }
+    </script>
+
+    <!-- JS CHUNG -->
+    <script src="js/components.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/branches-data.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- JS TRANG CHI NHÁNH -->
+    <script src="js/branches.js"></script>
+    <script src="js/mobile.js"></script>
+  </body>
+</html>
+
