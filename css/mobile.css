@@ -91,6 +91,9 @@
     text-overflow: ellipsis;
     white-space: nowrap;
   }
+  .header .logo .logo-text small {
+    display: none;
+  }
 
   /* Hide desktop nav + auth text */
   .nav {

@@ -1,3 +1,10 @@
+/* 
+========================================================================================
+
+                                    CODE BỞI TRẦN GIA BẢO
+
+========================================================================================
+*/
 const popup = document.getElementById("promoPopup");
 const closeBtn = document.getElementById("closePopup");
 

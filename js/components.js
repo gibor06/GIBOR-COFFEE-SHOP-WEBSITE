@@ -6,42 +6,64 @@
 ========================================================================================
 */
 
-const HeaderComponent = `
+const NAV_ITEMS = [
+  { href: "index.html", label: "Trang chủ" },
+  { href: "menu.html", label: "Menu" },
+  { href: "about.html", label: "Giới thiệu" },
+  { href: "branches.html", label: "Chi nhánh" },
+  { href: "contact.html", label: "Liên hệ" },
+];
+
+function getCurrentPage() {
+  const path = window.location.pathname.replace(/\\/g, "/");
+  return (path.split("/").pop() || "index.html").toLowerCase();
+}
+
+function renderHeaderComponent() {
+  const currentPage = getCurrentPage();
+  const navLinks = NAV_ITEMS.map(({ href, label }) => {
+    const active = currentPage === href.toLowerCase();
+    const activeAttrs = active ? ' class="is-active" aria-current="page"' : "";
+    return `<li><a href="${href}"${activeAttrs}>${label}</a></li>`;
+  }).join("");
+
+  return `
     <header class="header">
       <div class="header-container">
-        <!-- LOGO -->
-        <a href="index.html" class="logo">
+        <a href="index.html" class="logo" aria-label="GIBOR Coffee - Trang chủ">
           <img src="images/logo/logo.jpg" alt="GIBOR Coffee" />
-          <span>GIBOR COFFEE</span>
+          <span class="logo-text">
+            <strong>GIBOR COFFEE</strong>
+          </span>
         </a>
 
-        <!-- NAV -->
-        <nav class="nav">
+        <nav class="nav" aria-label="Điều hướng chính">
           <ul class="nav-links">
-            <li><a href="index.html">Trang chủ</a></li>
-            <li><a href="menu.html">Menu</a></li>
-            <li><a href="branches.html">Chi nhánh</a></li>
-            <li><a href="about.html">Giới thiệu</a></li>
-            <li><a href="contact.html">Liên hệ</a></li>
+            ${navLinks}
           </ul>
         </nav>
 
-        <!-- AUTH + CART -->
         <div class="header-actions">
-          <a href="login.html" class="icon-btn" id="authLink">Đăng nhập</a>
-          <a href="cart.html" class="icon-btn cart">
-            🛒
+          <a href="login.html" class="icon-btn auth-btn" id="authLink">
+            <i class="fas fa-user"></i>
+            <span>Đăng nhập</span>
+          </a>
+          <a href="cart.html" class="icon-btn cart" aria-label="Giỏ hàng">
+            <i class="fas fa-bag-shopping"></i>
             <span>Giỏ hàng</span>
             <span id="cart-count">0</span>
           </a>
-          <button class="theme-toggle" id="themeToggle">🌙</button>
-          <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+          <button class="theme-toggle" id="themeToggle" aria-label="Đổi giao diện">
+            🌙
+          </button>
+          <button class="menu-toggle" id="menuToggle" aria-label="Mở menu">
             <i class="fas fa-bars"></i>
           </button>
         </div>
       </div>
     </header>
-`;
+  `;
+}
 
 const FooterComponent = `
     <footer class="footer">
@@ -120,7 +142,7 @@ function loadComponents() {
   const footerPlaceholder = document.getElementById("footer-placeholder");
 
   if (headerPlaceholder) {
-    headerPlaceholder.outerHTML = HeaderComponent;
+    headerPlaceholder.outerHTML = renderHeaderComponent();
   }
 
   if (footerPlaceholder) {
